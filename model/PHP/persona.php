@@ -8,6 +8,15 @@ class Persona{
     private $Telefono;
     private $Email;
 
+    public function añadirPersona(){
+        $con = new Conexion;
+        $sql = 'INSERT INTO Clientes(Cedula, Nombre, Apellido, Direccion, Telefono, Email) VALUES (?, ?, ?, ?, ?, ?);';
+        $query = $con->prepare($sql);
+        $query->execute([
+            $this->Cedula, $this->Nombre, $this->Apellido, $this->Direccion, $this->Telefono, $this->Email
+        ]);
+    }
+
     public function listarPersona(){
         $con = new Conexion;
         $sql = 'SELECT * FROM Clientes';
