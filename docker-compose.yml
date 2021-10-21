@@ -1,0 +1,47 @@
+version: '3.9'
+services:
+    php-apache-abml: #Web
+      container_name: abml
+      build: .
+      restart: always
+      ports:
+        - 8080:80
+      volumes:
+        - ./.:/var/www/html
+      networks:
+        abml_network:
+          aliases: 
+            - ABML_web
+      environment: 
+        DB_USUARIO: root
+        DB_PASSWORD: root
+        DB_IP: ABML_database
+        DB_NOMBRE: Directorio
+    
+    mysql-abml: #Base de Datos
+      container_name: mysql-abml
+      image: mysql:5.7
+      restart: always
+      ports:
+        - 3306:3306
+      volumes:
+        - mysql:/var/lib/mysql
+      environment:
+        MYSQL_DATABASE: Directorio
+        MYSQL_USER: admin
+        MYSQL_PASSWORD: admin
+        MYSQL_ROOT_PASSWORD: root
+      networks:
+        abml_network:
+          aliases: 
+            - ABML_database
+      command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+
+volumes:
+  mysql:
+networks:
+  abml_network:
+    name: abml_net
+    driver: bridge
+    ipam:
+      driver: default
