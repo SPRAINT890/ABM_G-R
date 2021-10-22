@@ -1,5 +1,6 @@
 <?php
-require "../model/PHP/conexion-docker.php";
+//require "../model/PHP/conexion-docker.php";
+require "../model/PHP/conexion.php";
 require "../model/PHP/persona.php";
 
 if (isset($_POST["Añadir"])) {
@@ -27,29 +28,43 @@ if (isset($_POST["Añadir"])) {
   <title>Ingresar Persona</title>
 </head>
 <body>
-  <h1> Ingresar Persona</h1>
+  <?php
+  require_once "../view/templateNavbar.php";
+  ?>
+  <div class="text-center ">
+    <h1> Ingresar Persona</h1>
+  </div>
+  <br>
+  <div class="justify-content-center container margenes">
+    <form action="" method="post">  
+      <div class="form-group mb-3">
+        <label class= "form-label  " for="Cedula">Cedula</label>
+        <input class="form-control" type="number" name="Cedula">
+      </div>
+      <div class="form-group mb-3">
+        <label for="Nombre">Nombre</label>
+        <input class="form-control" type="text" name="Nombre">
+      </div>
+      <div class="form-group mb-3">
+        <label for="Apellido">Apellido</label>
+        <input class="form-control" type="text" name="Apellido">
+      </div>
+      <div class="form-group mb-3">
+        <label for="Direccion">Direccion</label>
+        <input class="form-control" type="text" name="Direccion">
+      </div>
+      <div class="form-group mb-3">
+        <label for="Telefono">Telefono</label>
+        <input class="form-control" type="number" name="Telefono">
+      </div>
+      <div class="form-group mb-3">
+        <label for="E-Mail">E-Mail</label>
+        <input class="form-control" type="email" name="E-Mail">
+      </div>
 
-  <form action="" method="post">
-    <label for="Cedula">Cedula</label>
-    <input type="number" name="Cedula">
-
-    <label for="Nombre">Nombre</label>
-    <input type="text" name="Nombre">
-
-    <label for="Apellido">Apellido</label>
-    <input type="text" name="Apellido">
-
-    <label for="Direccion">Direccion</label>
-    <input type="text" name="Direccion">
-
-    <label for="Telefono">Telefono</label>
-    <input type="number" name="Telefono">
-
-    <label for="E-Mail">E-Mail</label>
-    <input type="email" name="E-Mail">
-
-    <button type="submit" class="btn btn-submit" name="Añadir">Añadir</button>
-  </form>
+      <button type="submit" class="btn btn-submit" name="Añadir">Añadir</button>
+    </form>
+  </div>
 </body>
 </html>
 

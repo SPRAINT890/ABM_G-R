@@ -1,6 +1,6 @@
 <?php
-//require "../model/conexion.php";
-require "../model/PHP/conexion-docker.php";
+require "../model/PHP/conexion.php";
+//require "../model/PHP/conexion-docker.php";
 require "../model/PHP/persona.php";
 
 $persona = new Persona;
@@ -36,46 +36,48 @@ if (isset($_POST["eliminar"])) {
   if ($listaPersonas) {
 
     ?>
-    <table class="table table-bordered table-info">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">CI</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellido</th>
-          <th scope="col">Direccion</th>
-          <th scope="col">Telefono</th>
-          <th scope="col">Email</th>
-          <th scope="col">Accion</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        
-        foreach ($listaPersonas as $row) {
-          echo "<tr>";
-          echo "<td>" . $row['ID'] . " </td> ";
-          echo "<td>" . $row['Cedula'] . " </td> ";
-          echo "<td>" . $row['Nombre'] . " </td> ";
-          echo "<td>" . $row['Apellido'] . " </td> ";
-          echo "<td>" . $row['Direccion'] . " </td> ";
-          echo "<td>" . $row['Telefono'] . " </td> ";
-          echo "<td>" . $row['Email'] . " </td> ";
-          ?>
-          <td>
-            <form action="" method="post">
-              <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
-              <button type="submit" name="modificar" class="btn btn-primary">Modificar</button>
-              <button type="submit" name="eliminar" class="btn btn-danger">Eliminar</button>
-            </form>
-          </td>
+    <div class="m-5 ">
+      <table class="table table-bordered table-success ">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">CI</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Direccion</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Email</th>
+            <th scope="col">Accion</th>
+          </tr>
+        </thead>
+        <tbody>
           <?php
-          echo "</tr>";
-        }
-        
-        ?>
-      </tbody>
-    </table>
+          
+          foreach ($listaPersonas as $row) {
+            echo "<tr>";
+            echo "<td>" . $row['ID'] . " </td> ";
+            echo "<td>" . $row['Cedula'] . " </td> ";
+            echo "<td>" . $row['Nombre'] . " </td> ";
+            echo "<td>" . $row['Apellido'] . " </td> ";
+            echo "<td>" . $row['Direccion'] . " </td> ";
+            echo "<td>" . $row['Telefono'] . " </td> ";
+            echo "<td>" . $row['Email'] . " </td> ";
+            ?>
+            <td>
+              <form action="" method="post">
+                <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
+                <button type="submit" name="modificar" class="btn btn-primary">Modificar</button>
+                <button type="submit" name="eliminar" class="btn btn-danger">Eliminar</button>
+              </form>
+            </td>
+            <?php
+            echo "</tr>";
+          }
+          
+          ?>
+        </tbody>
+      </table>
+    </div>
     <?php
   }else{
     echo "<h1>No hay registro de clientes </h1>";

@@ -1,6 +1,31 @@
-.margenes {
-    margin-top: 100px;
-    margin-bottom: 100px;
-    margin-right: 150px;
-    margin-left: 80px;
-  }
+.estilo1{
+  background: rgb(255, 164, 210);
+  font-family:'Franklin Gothic Medium', 'Arial Narrow';
+
+}
+.estilo2{
+  background-color: rgb(163, 226, 255);
+}
+.estiloimg{
+  max-width: 50%;
+  max-height: 50%;
+}
+.estilotexto{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+  margin-top: 70px;
+}
+.estilotextosomos{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+  margin-top: 300px;
+}
+.estilotextocontacto{
+  text-align: center;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow';
+}
+
+.margenes{
+  margin-left: 300px;
+  margin-right: 300px;
+}
