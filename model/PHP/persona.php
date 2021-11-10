@@ -33,6 +33,27 @@ class Persona{
         ]);
     }
 
+    public function modificarPersona(){
+        $con = new Conexion;
+        $sql = "UPDATE Clientes 
+                SET Cedula = ?, Nombre = ?, Apellido = ?, Direccion = ?, Telefono = ?, Email = ?
+                WHERE ID= ?";
+        $query = $con->prepare($sql);
+        $query->execute([
+            $this->Cedula, $this->Nombre, $this->Apellido, $this->Direccion, $this->Telefono, $this->Email, $this->ID
+        ]);
+    }
+
+    public function obtenerPersona(){
+        $con = new Conexion;
+        $sql = 'SELECT * FROM Clientes WHERE ID = ?';
+        $query = $con->prepare($sql);
+        $query->execute([
+            $this->ID
+        ]);
+        return $query->fetchAll()[0];
+    }
+
     /**
      * Getters
      */ 

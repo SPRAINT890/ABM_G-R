@@ -27,7 +27,7 @@ if (isset($_POST["Añadir"])) {
   <link rel="stylesheet" href="../view/styles.css">
   <title>Ingresar Persona</title>
 </head>
-<body>
+<body style= "min-width: 100vw">
   <?php
   require_once "../view/templateNavbar.php";
   ?>
@@ -35,34 +35,34 @@ if (isset($_POST["Añadir"])) {
     <h1> Ingresar Persona</h1>
   </div>
   <br>
-  <div class="justify-content-center container margenes">
+  <div class="justify-content-center container w-50">
     <form action="" method="post">  
       <div class="form-group mb-3">
         <label class= "form-label  " for="Cedula">Cedula</label>
-        <input class="form-control" type="number" name="Cedula">
+        <input class="form-control" type="number" name="Cedula" required max="99999999">
       </div>
       <div class="form-group mb-3">
         <label for="Nombre">Nombre</label>
-        <input class="form-control" type="text" name="Nombre">
+        <input class="form-control" type="text" name="Nombre" required>
       </div>
       <div class="form-group mb-3">
         <label for="Apellido">Apellido</label>
-        <input class="form-control" type="text" name="Apellido">
+        <input class="form-control" type="text" name="Apellido" required>
       </div>
       <div class="form-group mb-3">
         <label for="Direccion">Direccion</label>
-        <input class="form-control" type="text" name="Direccion">
+        <input class="form-control" type="text" name="Direccion" required maxlength="60">
       </div>
       <div class="form-group mb-3">
         <label for="Telefono">Telefono</label>
-        <input class="form-control" type="number" name="Telefono">
+        <input class="form-control" type="number" name="Telefono" required>
       </div>
       <div class="form-group mb-3">
         <label for="E-Mail">E-Mail</label>
-        <input class="form-control" type="email" name="E-Mail">
+        <input class="form-control" type="email" name="E-Mail" required>
       </div>
 
-      <button type="submit" class="btn btn-submit" name="Añadir">Añadir</button>
+      <button type="submit" class="btn btn-success" name="Añadir">Añadir</button>
     </form>
   </div>
 </body>

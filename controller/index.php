@@ -6,9 +6,12 @@ require "../model/PHP/persona.php";
 $persona = new Persona;
 $listaPersonas = $persona->listarPersona();
 
-if (isset($_POST["modificar"])) {
-  echo "modificar";
-}
+// if (isset($_POST["modificar"])) {
+//   echo "modificar";
+  
+  
+// }
+
 if (isset($_POST["eliminar"])) {
   $id = $_POST["id"];
   $persona->setID($id);
@@ -36,7 +39,7 @@ if (isset($_POST["eliminar"])) {
   if ($listaPersonas) {
 
     ?>
-    <div class="m-5 ">
+    <div class="m">
       <table class="table table-bordered table-success ">
         <thead>
           <tr>
@@ -66,8 +69,11 @@ if (isset($_POST["eliminar"])) {
             <td>
               <form action="" method="post">
                 <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
-                <button type="submit" name="modificar" class="btn btn-primary">Modificar</button>
                 <button type="submit" name="eliminar" class="btn btn-danger">Eliminar</button>
+              </form>
+              <form action="modificar.php" method="get">
+                <input type="hidden" name="id" value="<?php echo $row['ID']; ?>">
+                <button type="submit" name="modificar" class="btn btn-primary">Modificar</button>
               </form>
             </td>
             <?php

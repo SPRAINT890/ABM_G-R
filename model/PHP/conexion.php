@@ -7,7 +7,7 @@ class Conexion extends PDO
    {
       try {
          $user = "root";
-         $pass = "";
+         $pass = "admin";
          $db = "gyr";
          $host = "localhost";
          $dsn = "mysql:host=" . $host . ";dbname=" . $db . ";charset=utf8";
